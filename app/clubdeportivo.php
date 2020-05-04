@@ -2,6 +2,7 @@
 
 namespace App;
 use App\tipoentidad;
+use App\Deporte;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,5 +16,14 @@ class clubdeportivo extends Model
     {
         return $this->belongsTo('App\tipoentidad','tipoentidad');
     }
+
+    public function deporte(){
+             return $this->belongsToMany('App\deporte');
+   }
+
+   public function Socio(){
+    return $this->belongsToMany('App\Socio');
+}
+
 
     }
