@@ -19,8 +19,8 @@ class CreateClubdeportivoDeporteTable extends Migration
             $table->integer('id_deporte')->unsigned();
             $table->timestamps();
 
-            $table->foreign('id_clubdeportivo')->references('id')->on('clubdeportivos')->delete('cascade');
-            $table->foreign('id_Deporte')->references('id')->on('Deportes')->delete('cascade');
+            $table->foreign('id_clubdeportivo')->references('id')->on('clubdeportivos')->Ondelete('cascade');
+            $table->foreign('id_Deporte')->references('id')->on('Deportes')->Ondelete('cascade');
 
             
         });

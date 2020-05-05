@@ -18,8 +18,8 @@ class CreatePersmisoRoleTable extends Migration
             $table->integer('id_permiso')->unsigned();
             $table->integer('id_rol')->unsigned();
             $table->timestamps();
-             $table->foreign('id_permiso')->references('id')->on('permisos')->delete('cascade');
-             $table->foreign('id_rol')->references('id')->on('roles')->delete('cascade');
+             $table->foreign('id_permiso')->references('id')->on('permisos')->Ondelete('cascade');
+             $table->foreign('id_rol')->references('id')->on('roles')->Ondelete('cascade');
         });
     }
 

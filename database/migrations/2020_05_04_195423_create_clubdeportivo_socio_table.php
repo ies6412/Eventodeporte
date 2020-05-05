@@ -20,8 +20,8 @@ class CreateClubdeportivoSocioTable extends Migration
             $table->integer('id_autoridad')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_socio')->references('id')->on('socios')->delete('cascade');
-            $table->foreign('id_clubdeportivo')->references('id')->on('clubdeportivos')->delete('cascade');
+            $table->foreign('id_socio')->references('id')->on('socios')->Ondelete('cascade');
+            $table->foreign('id_clubdeportivo')->references('id')->on('clubdeportivos')->Ondelete('cascade');
             
             
         });
