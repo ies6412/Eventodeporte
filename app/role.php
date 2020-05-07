@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Permiso;
 use Illuminate\Database\Eloquent\Model;
 
 class role extends Model

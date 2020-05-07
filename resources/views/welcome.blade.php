@@ -8,6 +8,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <script type "text/javascript" src="{{asset('otros/js/jquery-3.1.1.js')}}"></script>
+        <script type "text/javascript" src="{{asset('otros/css/js/bootstrap.min.js')}}" ></script>
+        <script type "text/javascript" src="{{asset('otros/js/jquery.dataTables.min.js')}}" ></script>
+
+        <link rel="stylesheet" href="{{asset('otros/css/bootstrap.min.css')}}">
 
         <!-- Styles -->
         <style>
@@ -80,12 +85,15 @@
             @endif
 
             <div class="content">
+               
+               @yield('seccion')
+
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+               
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="{{route('permisos')}}">Permisos</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
@@ -97,4 +105,6 @@
             </div>
         </div>
     </body>
+
+    @stack('scripts') 
 </html>

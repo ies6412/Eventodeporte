@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Permisos extends Model
+class Permiso extends Model
 {
     protected $table="Permisos";
     protected $fillable=['nombrepermiso','slug','descripcion'];

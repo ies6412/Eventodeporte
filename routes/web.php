@@ -17,10 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+route::get('/Permiso/permisos',function(){
+ return view('Permiso.permiso');
+});
 Auth::routes(['register'=>false]);
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+route::get('Permiso/permiso','ControllerPermisos@index')->name('permisos');
+route::get('Permiso/verpermisos','ControllerPermisos@verpermisos')->name('verpermisos');
+
 
 Route::resource('clubdeportivo/club','ControllerClub');
 Route::resource('Deporte/deporte','ControllerClub');
