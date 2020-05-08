@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 
 route::get('/Permiso/permisos',function(){
  return view('Permiso.permiso');
 });
-Auth::routes(['register'=>false]);
+Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 route::get('Permiso/permiso','ControllerPermisos@index')->name('permisos');
 route::get('Permiso/verpermisos','ControllerPermisos@verpermisos')->name('verpermisos');
