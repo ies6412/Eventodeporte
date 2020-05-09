@@ -1,7 +1,12 @@
 @extends('layouts.general')
+@section('titulodepagina','Inicio de Sesion')
 
+@section('titulo')
+<h1 class="text-lead text-light">Inicio de Sesion</h1>
+<p class="text-lead text-light">solo se de pruebas</p>
+@endsection()
 @section('content')
-<div class="container mt--9 pb-5">
+<div class="container mt--7 pb-5">
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-7">
           <div class="card bg-secondary shadow border-0">
