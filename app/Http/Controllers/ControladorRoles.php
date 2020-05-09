@@ -45,7 +45,7 @@ class ControladorRoles extends Controller
        ]);
          if($request->get('permisos'))
          {   $role=role::create($request->all());
-            $role->permisoss()->sync($request->get('permisos'));
+             $role->permisoss()->sync($request->get('permisos'));
             return redirect()->route('roles.index')->with('status_success','role creado');
          }
          else {

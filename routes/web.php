@@ -31,6 +31,8 @@ route::get('Permiso/verpermisos','ControllerPermisos@verpermisos')->name('verper
 Route::resource('clubdeportivo/club','ControllerClub');
 Route::resource('Deporte/deporte','ControllerClub');
 
+Route::resource('/Roles','ControladorRoles')->names('roles');
+
 
 
 
