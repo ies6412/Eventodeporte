@@ -19,5 +19,15 @@
 
 </diV>  
 </div>
+
+
+    <script type "text/javascript" src="{{asset('otros/js/jquery-3.1.1.js')}}"></script>
+     <script type "text/javascript" src="{{asset('otros/css/js/bootstrap.min.js')}}" ></script>
+    
+
+
+        <!-- App scripts -->
+        @stack('scripts')
 </body>
+
 </html>

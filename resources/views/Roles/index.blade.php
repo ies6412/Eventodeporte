@@ -21,14 +21,20 @@
       <td>{{$role->nombrerol}}</td>
       <td>{{$role->slug}}</td>
       <td>{{$role->descripcion}}</td>
-      <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-      <td><a href="#" class="btn btn-primary">Mostrar</a></td>
-      <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+      <td><a href="{{route('roles.edit',$role->id)}}" class="btn btn-primary">Actualizar</a></td>
+      <td><a href="{{route('roles.show',$role->id)}}" class="btn btn-primary">Mostrar</a></td>
+      <td><form action="{{route('roles.destroy',$role->id)}}" method="POST">
+        @method('delete')
+        @csrf
+        <button class="btn btn-danger">Eliminar</button>
+        </form>
+      </td>
       <td></td>
     </tr>
     @endforeach
     </tbody>
     </table>
+    {{$roles->links()}}
 @endsection
 
 

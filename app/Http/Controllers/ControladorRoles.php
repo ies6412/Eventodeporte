@@ -14,7 +14,7 @@ class ControladorRoles extends Controller
      */
     public function index()
     {
-       $roles=role::get();
+       $roles=role::orderBy('id','asc')->paginate(10);
        return view('Roles.index',compact('roles'));
     }
 
@@ -63,7 +63,16 @@ class ControladorRoles extends Controller
      */
     public function show($id)
     {
-        //
+       $role=role::findOrFail($id);
+        $permisos_roles=[];
+       foreach($role->permisoss as $permis)
+       {
+        $permisos_roles[]=$permis->id;
+       }
+        $permisos=permiso::get();
+        return view('roles.show',compact('permisos','role','permisos_roles'));
+
+
     }
 
     /**
@@ -74,7 +83,21 @@ class ControladorRoles extends Controller
      */
     public function edit($id)
     {
-        //
+       
+        
+        $role=role::findOrFail($id);
+        $permisos_roles=[];
+       foreach($role->permisoss as $permis)
+       {
+        $permisos_roles[]=$permis->id;
+       }
+        $permisos=permiso::get();
+        return view('roles.edit',compact('permisos','role','permisos_roles'));
+         
+
+
+
+
     }
 
     /**
@@ -86,7 +109,28 @@ class ControladorRoles extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    $role=role::findorfail($id);
+
+      
+         $request->validate([
+            'nombrerol'=>'required|max:50|unique:roles,nombrerol,'.$role->id,
+            'slug'=>'required|max:50,'.$role->id,
+            'descripcion'=>'required|max:50,'.$role->id
+          ]);
+            if($request->get('permisos'))
+            {   
+                
+               $role->update($request->all());
+
+                $role->permisoss()->sync($request->get('permisos'));
+               
+               return redirect()->route('roles.index')->with('status_success','Rol y Permisos Actualizado');
+            }
+            else {
+                
+            return redirect()->route('roles.edit')->with('status_danger','Escoja por lo menos un permiso');
+            }
+
     }
 
     /**
@@ -97,6 +141,8 @@ class ControladorRoles extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role=role::findorfail($id);
+        $role->delete();
+        return redirect()->route('roles.index')->with('status_success','Rol Eliminado');
     }
 }
