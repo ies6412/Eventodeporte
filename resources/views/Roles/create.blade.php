@@ -25,15 +25,14 @@
         @if(is_array(old('permisos')) && in_array("$permiso->id",old('permisos')))
           checked
           @endif
-       
-       
+            
        >
          <label class="custom-control-label" for="{{$permiso->id}}" >{{$permiso->nombrepermiso}} \ <em>{{$permiso->descripcion}}</em></label><br>
       
       </div>
       @endforeach
 
-  </div>
+  
 
   <button type="submit" class="btn btn-warning">Guardar </button>
 </form>

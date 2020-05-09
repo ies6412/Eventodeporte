@@ -21,7 +21,7 @@
       <td>{{$role->nombrerol}}</td>
       <td>{{$role->slug}}</td>
       <td>{{$role->descripcion}}</td>
-      <td><a href="{{route('roles.edit',$role->id)}}" class="btn btn-primary">Actualizar</a></td>
+      <td><a href="{{route('roles.edit',$role->id)}}" class="btn btn-warning">Actualizar</a></td>
       <td><a href="{{route('roles.show',$role->id)}}" class="btn btn-primary">Mostrar</a></td>
       <td><form action="{{route('roles.destroy',$role->id)}}" method="POST">
         @method('delete')
