@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome
+    ');
 });
 
 route::get('/Permiso/permisos',function(){
@@ -22,7 +23,7 @@ route::get('/Permiso/permisos',function(){
 });
 Auth::routes(['register'=>false]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 route::get('Permiso/permiso','ControllerPermisos@index')->name('permisos');
 route::get('Permiso/verpermisos','ControllerPermisos@verpermisos')->name('verpermisos');
